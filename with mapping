@@ -1,0 +1,99 @@
+import math
+
+dartlist = [(1,5),(2,6),(3,9),(6,3),(7,2),(8,8),(10,10),(-3,1),(-1,-6),(5,2)]
+distancelist = []
+scorelist = []
+combinedlist = []
+
+center = (0,0)
+radius = 11
+
+scoretup = (10,5,3,2,1,0)
+score = 0 
+
+print ("        ^^** Playing Dart Game **^^        ")
+print("*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^")
+print("--------------------------------------------")
+
+#center is (0,0) so x2 and y2 are equal to 0 in the distance formula 
+distanceCalculator = lambda data: (math.sqrt((data[0]**2)+(data[1]**2)))
+
+distancelist = list(map(distanceCalculator,dartlist))
+
+def scoreCalculator(distance): 
+
+ if 0 <= distance and 3 >= distance: 
+    return scoretup[0]
+ if 3 < distance and 7 >= distance: 
+    return scoretup[1]
+ if 7 < distance and 11 >= distance: 
+    return scoretup[2]
+ if 11 < distance and 15 >= distance: 
+    return scoretup[5]
+ if 15 < distance and 19 >= distance: 
+    return scoretup[5]
+ if 19 < distance: 
+    return scoretup[5]
+
+scorelist = list(map(scoreCalculator,distancelist))
+
+def listAppender(a_dartlist,b_distance,c_score):
+
+    combinedlist.append(" ")
+    combinedlist.append("Hit Point is: ")
+    combinedlist.append(a_dartlist)
+    combinedlist.append("Center is: ")
+    combinedlist.append((0,0))
+    combinedlist.append("The distance is: ")
+    combinedlist.append(b_distance)
+    
+    if b_distance>radius:
+        combinedlist.append("Result: False")
+        combinedlist.append("Outside of the dart board!")
+    else: 
+        combinedlist.append("Result: True")
+        combinedlist.append("Hit the board!")
+       
+    combinedlist.append("Score: ")
+    combinedlist.append(c_score)
+    combinedlist.append(" ")
+    combinedlist.append("--------------------------------------------")
+    return combinedlist 
+
+combinedlistlast = list(map(listAppender,dartlist,distancelist,scorelist))
+
+
+print('\n'.join(map(str,combinedlist)))
+
+#Mehmet Mert Tellioğlu - 160302055
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
