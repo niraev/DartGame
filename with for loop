@@ -1,0 +1,64 @@
+
+import math
+
+dartlist = [(1,5),(2,6),(3,9),(6,3),(7,2),(8,8),(10,10),(-3,1),(-1,-6),(5,2)]
+
+center = (0,0)
+radius = 11
+
+scoretup = (10,5,3,2,1,0)
+score = 0 
+
+print ("        ^^** Playing Dart Game **^^        ")
+print("*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^")
+print("--------------------------------------------")
+print(" ")
+
+
+for darts in dartlist: 
+
+   x,y = darts 
+
+   #center is (0,0) so x2 and y2 are equal to 0 in the distance formula 
+   distance = math.sqrt((x**2)+(y**2))
+
+   if 0 <= distance and 3 >= distance: 
+    score = scoretup[0]
+   if 3 < distance and 7 >= distance: 
+    score = scoretup[1]
+   if 7 < distance and 11 >= distance: 
+    score = scoretup[5]
+   if 11 < distance and 15 >= distance: 
+    score = scoretup[5]
+   if 15 < distance and 19 >= distance: 
+    score = scoretup[5]
+   if 19 < distance: 
+    score = scoretup[5]
+
+
+   print ("Hit point is: ", darts)
+   print("Center is: ",center)
+   print("The distance is: ", distance)
+
+   if distance>radius:
+    result = "False"
+    print("Result: ", result)
+    print("Outside of the dart board!")
+   else:
+    result = "True"
+    print("Result: ", result)
+    print("Hit the board !")
+
+    print("Score: ",score)
+   print(" ")
+   print("--------------------------------------------")
+   print(" ")
+
+#Mehmet Mert Tellioğlu - 160302055
+
+  
+
+
+
+
+
